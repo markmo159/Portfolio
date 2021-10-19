@@ -34,8 +34,8 @@ const PortfolioMe = () => {
           <p>From then to now I waste my free time to study, research and implement coding.</p>
           <p>The passion that comes with me will push every project I will work on to its limits !</p>
         </div>
-        <button className="arrow1" onClick={scrollDown}><i className="fas fa-chevron-down fa-3x bounce"></i></button>
-        <button className="arrow2" onClick={scrollDown}><i className="fas fa-chevron-down fa-3x bounce"></i></button>
+        <button className="arrow1 clear" onClick={scrollDown}><i className="fas fa-chevron-down fa-3x bounce"></i></button>
+        <button className="arrow2 clear" onClick={scrollDown}><i className="fas fa-chevron-down fa-3x bounce"></i></button>
       </div>
     </div>
   )

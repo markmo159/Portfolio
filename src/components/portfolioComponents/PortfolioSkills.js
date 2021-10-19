@@ -83,8 +83,8 @@ const PortfolioSkills = () => {
           <i id="arrow-right" className="fas fa-chevron-right fa-3x works-arrow" onClick={() => moveWorks('right')}></i>
         </div>
       </div>
-      <button onClick={scrollDown}><i className="fas fa-chevron-down fa-3x arrow3 bounce"></i></button>
-      <button onClick={scrollDown}><i className="fas fa-chevron-down fa-3x arrow4 bounce"></i></button>
+      <button className="arrow3 clear" onClick={scrollDown}><i className="fas fa-chevron-down fa-3x bounce"></i></button>
+      <button className="arrow4 clear" onClick={scrollDown}><i className="fas fa-chevron-down fa-3x bounce"></i></button>
     </div>
   )
 }

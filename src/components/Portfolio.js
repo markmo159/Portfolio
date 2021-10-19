@@ -7,8 +7,21 @@ import PortfolioContact from './portfolioComponents/PortfolioContact';
 
 const Portfolio = () => {
 
+  const backToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   return (
   <div className="portfolio" >
+    <button onClick={backToTop} className="btn toTopBtn">
+      <div>
+      <i class="fas fa-arrow-up"></i>
+      <p>Back to Top</p>
+      </div>
+    </button>
     <PortfolioMe />
     <PortfolioSkills />
     <PortfolioContact />

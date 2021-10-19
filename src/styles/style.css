@@ -59,7 +59,16 @@ a {
 
 }
 
+body {
+overflow: hidden;
+}
 
+.toTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
 
 
 .portfolio-me {
@@ -122,13 +131,19 @@ a {
   position: absolute;
   bottom: 0;
   left: 50%;
+  cursor: pointer;
 }
 .arrow2 {
   position: absolute;
   bottom: 20px;
   left: 50%;
+  cursor: pointer;
 }
 
+.clear {
+  background-color: transparent;
+  border: none;
+}
 
 .bounce {
   -moz-animation: bounce 2s infinite;
@@ -237,13 +252,13 @@ a {
   position: absolute;
   bottom: -100vh;
   left: 50%;
-  background: none;
+  cursor: pointer;
 }
 .arrow4 {
   position: absolute;
   bottom: calc(-100vh + 20px);
   left: 50%;
-  background: none;
+  cursor: pointer;
 }
 
 
