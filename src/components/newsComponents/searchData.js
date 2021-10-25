@@ -84,6 +84,10 @@ export const sortBy = [
 
 export const countries = [
   {
+    value: '',
+    label: 'None',
+  },
+  {
     value: 'ae',
     label: 'United Arab Emirates',
   },
@@ -303,6 +307,10 @@ export const countries = [
 
 
 export const categories = [
+  {
+    value: '',
+    label: 'None',
+  },
   {
     value: 'business',
     label: 'Business',
