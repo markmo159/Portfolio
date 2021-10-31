@@ -18,7 +18,7 @@ const Portfolio = () => {
   <div className="portfolio" >
     <button onClick={backToTop} className="btn toTopBtn">
       <div>
-      <i class="fas fa-arrow-up"></i>
+      <i className="fas fa-arrow-up"></i>
       <p>Back to Top</p>
       </div>
     </button>
