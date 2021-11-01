@@ -1,0 +1,50 @@
+
+.header-wrap {
+  background: $color0; 
+  height: 100px
+}
+
+.header {
+  width: 80%;
+  margin: auto;
+  height: 100px;
+}
+
+.btn-home {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 64px;
+}
+
+
+.nav-links {
+  width: 250px;
+  a {
+    font-size: 30px;
+  }
+}
+
+
+
+@media screen and (max-width:1024px) {
+  .btn-home {
+    font-size: 40px;
+  }
+  .nav-links {
+    a {
+      font-size: 25px;
+    }
+  }
+}
+
+
+@media screen and (max-width:769px) {
+  .btn-home {
+    font-size: 25px;
+  }
+  .nav-links {
+    width: 150px;
+    a {
+      font-size: 20px;
+    }
+  }
+}

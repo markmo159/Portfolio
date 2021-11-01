@@ -1,0 +1,57 @@
+.heptagon {
+  position: relative;
+  height:25vw;
+  width: 50%;
+  clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+.arrow-down {
+  position: absolute;
+  left: 50%;
+}
+
+.circle {
+  height: 150px;
+  width: 150px;
+  background: $color5 ;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 2px 2px 5px 0px $color4;
+}
+
+.gallery-card {
+  width: 500px;
+  height: 500px;
+  margin: 0 20px;
+  background: $color5 ;
+  box-shadow: 2px 2px 5px 0px $color4;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+
+@media screen and (max-width:1024px) {
+  .heptagon {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+  .gallery-card {
+    width: 350px;
+    height: 350px;
+  }
+  .gallery-card{
+    div {
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
