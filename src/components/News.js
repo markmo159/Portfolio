@@ -1,36 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { endpoints, languages, sortBy, categories, countries } from './newsComponents/searchData'
 
-import { Container, Box, TextField, MenuItem, Button  } from '@mui/material';
+import { endpoints, 
+  languages, 
+  sortBy, 
+  categories, 
+  countries 
+} from './newsComponents/searchData'
+import FetchData from './newsComponents/FetchData';
+import PostingNews from './newsComponents/PostingNews';
 
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
-import Stack from '@mui/material/Stack';
+import { Container, 
+  Box,
+  TextField,
+  MenuItem,
+  Button  
+} from '@mui/material';
+
 
 const News = () => {
+  const [data, setData] = useState()
   const [isError, setIsError] = useState(true)
   const [helperText, setHelperText] = useState('Nothing to search')
   const [search, setSearch] = useState('')
   const [endpoint, setEndpoint] = useState('everything');
   const [language, setLanguage] = useState('en');
   const [sorting, setSorting] = useState('publishedAt');
-  const [fromDate, setFromDate] = useState('01-01-1900');
-  const [toDate, setToDate] = useState(new Date());
   const [category, setCategory] = useState('');
-  const [country, setCountry] = useState('us');
+  const [country, setCountry] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
   
-  useEffect(() => {
-    if (!search) {
-      setIsError(true);
-      setHelperText('Nothing to search')
-    }else {
-      setIsError(false);
-      setHelperText('')
-    }
 
-  },[search])
+  useEffect (() => {
+    document.body.style.overflow='visible'
+    const firstLoad = async () => {
+      const response = await FetchData();
+    setData(response)
+    };
+    firstLoad()
+  },[])
+
+  useEffect(() => {
+      if (!search) {
+        setIsError(true);
+        setHelperText('Nothing to search')
+      }else {
+        setIsError(false);
+        setHelperText('')
+      }
+      const listener = event => {
+        if (event.code === "Enter" || event.code === "NumpadEnter") {
+          event.preventDefault();
+          onSearchClick()
+        }
+      };
+      document.addEventListener("keydown", listener);
+      return () => {
+        document.removeEventListener("keydown", listener);
+      };
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[search]);
+
 
   const handleChange = (event) => {
     if(event.target.name === 'endpoint'){
@@ -51,12 +80,18 @@ const News = () => {
     }
   };
 
-  const onSearchClick = () => {
+  const onSearchClick = async () => {
     if (search){
-      console.log('good')
+      const response = await FetchData(endpoint, search, language, sorting, category, country);
+      setData(response)
     }
   }
 
+  const searchResults = () => {
+    if (data) {
+      return <PostingNews data={data.data} />
+    }
+  }
 
   return (
     <Container fixed>
@@ -94,43 +129,8 @@ const News = () => {
           helperText={helperText}
           onChange={(e) => { setTimeout(() => { 
             setSearch(e.target.value);
-          }, 1000); }}
+          }, 500); }}
         />
-        <div>
-          <LocalizationProvider dateAdapter={AdapterDateFns} >
-            <Stack sx={{ width: 200, display: 'inline', }}>
-              <DatePicker
-                disabled={!isDisabled}
-                disableFuture
-                label="From"
-                openTo="year"
-                views={['year', 'month', 'day']}
-                value={fromDate}
-                onChange={(newValue) => {
-                  setFromDate(newValue);
-                }}
-                renderInput={(params) => <TextField sx={{ width: 200 }}
-                size = 'small' {...params} />}
-              />
-            </Stack>
-          </LocalizationProvider>
-          <LocalizationProvider dateAdapter={AdapterDateFns} >
-            <Stack sx={{ width: 200, display: 'inline', }}>
-              <DatePicker
-                disabled={!isDisabled}
-                disableFuture
-                label="To"
-                openTo="year"
-                views={['year', 'month', 'day']}
-                value={toDate}
-                onChange={(newValue) => {
-                  setToDate(newValue);
-                }}
-                renderInput={(params) => <TextField sx={{ width: 200 }}
-                size = 'small' {...params} />}
-              />
-            </Stack>
-          </LocalizationProvider>
           <TextField 
             disabled={!isDisabled}
             sx={{ width: 200 }}
@@ -165,7 +165,6 @@ const News = () => {
               </MenuItem>
             ))}
           </TextField>
-        </div>
         <TextField
           disabled={isDisabled}
           sx={{ width: 200 }}
@@ -178,7 +177,7 @@ const News = () => {
           onChange={handleChange}
         >
           {categories.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <MenuItem key={option.value} value={option.value} >
               {option.label}
             </MenuItem>
           ))}
@@ -203,8 +202,11 @@ const News = () => {
       </div>
     </Box>
     <div style={{display:'flex', justifyContent:'center'}} >
-      <Button sx={{  width:'200px'}} variant="contained" onClick={onSearchClick}>Search</Button>
+      <Button sx={{  width:'200px'}} variant="contained" onClick={onSearchClick} >Search</Button>
     </div>
+    
+    {searchResults()}
+
     </Container>
   );
 }
