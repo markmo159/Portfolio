@@ -13,7 +13,10 @@ import { Container,
   Box,
   TextField,
   MenuItem,
-  Button  
+  Button,
+  AlertTitle,
+  Alert,
+  Stack
 } from '@mui/material';
 
 
@@ -89,7 +92,20 @@ const News = () => {
 
   const searchResults = () => {
     if (data) {
-      return <PostingNews data={data.data} />
+      if (data.data.status === 'error'){
+        return (
+          <div>
+            <Stack sx={{ width: '100%', marginTop:'50px' }} spacing={2}>
+              <Alert severity="error">
+                <AlertTitle>{`Error ${data.status}`}</AlertTitle>
+                {data.data.message}
+              </Alert>
+            </Stack>
+          </div>
+        );
+      }else {
+        return <PostingNews data={data.data} />
+      }
     }
   }
 
