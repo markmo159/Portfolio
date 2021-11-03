@@ -1,0 +1,72 @@
+
+.meSection {
+  height: calc(100vh - 100px);
+  background: linear-gradient($color1, $color2);
+}
+
+.about {
+  padding-top: 50px;
+  height: 50vh;
+  display: flex;
+}
+.about-text-h1 {
+  font-size: 70px;
+}
+.about-text-h2 {
+  font-size: 40px;
+}
+
+.heptagon-meSection {
+  background:linear-gradient($color1, $color2);
+}
+
+.image-me {
+  bottom: -1%;
+  left: 10%;
+  width: 100%;
+}
+
+
+.info {
+  background:linear-gradient($color1,$color2);
+}
+.info {
+  p{
+    padding-left: 30px;
+
+  }
+}
+
+.arrow1 {
+  bottom: 0;
+}
+.arrow2 {
+  bottom: 20px;
+}
+
+
+
+@media screen and (max-width:1024px) {
+
+  .about {
+    display: block;
+  }
+  .about-text {
+    margin-bottom: 60px;
+  }
+  .about-text-h2 {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .about {
+    display: block;
+  }
+  .about-text {
+    margin-bottom: 60px;
+  }
+  .about-text-h2 {
+    font-size: 20px;
+  }
+}

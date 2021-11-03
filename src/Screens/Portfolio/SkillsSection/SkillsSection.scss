@@ -1,0 +1,24 @@
+
+.skillsSection {
+  height: 100vh;
+  background:linear-gradient($color2,$color1);
+}
+
+
+.upper {
+  margin-top: 50px;
+  grid-template-columns: repeat(3,1fr);
+  margin-bottom: 20px;
+}
+
+.lower {
+  grid-template-columns: repeat(2,1fr);
+}
+
+.arrow3 {
+  bottom: -100vh;
+}
+.arrow4 {
+  bottom: calc(-100vh + 20px);
+}
+
