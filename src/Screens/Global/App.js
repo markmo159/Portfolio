@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Portfolio from './Portfolio';
-import News from './News';
-import Library from './Library';
-import Header from './Header';
+import Portfolio from '../Portfolio/Portfolio.js';
+import News from '../../components/News';
+import Library from '../../components/Library';
+import Header from './Header/Header.js';
 
 
 function App() {

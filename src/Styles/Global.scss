@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.font-color-danger {
+  color: $color3;
+}
+.font-color-1 {
+  color: $color1;
+}
+.font-color-2 {
+  color: $color2;
+}
+
+.d-f {
+  display: flex;
+}
+.d-g {
+  display: grid;
+}
+.jc-c {
+  justify-content: center;
+}
+.jc-sb {
+  justify-content: space-between;
+}
+.ai-c {
+  align-items: center;
+}
+.ai-fe {
+  align-items: flex-end;
+}
+.fd-c {
+  flex-direction: column;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.pos-rel {
+  position: relative;
+}
+.pos-abs {
+  position: absolute;
+}

@@ -1,0 +1,14 @@
+.text-box {
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  margin-top: 50px;
+}
+
+@media screen and (max-width:1024px) {
+  .text-box {
+    p {
+      font-size: 15px;
+    }
+  }
+}
